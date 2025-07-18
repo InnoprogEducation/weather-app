@@ -8,11 +8,7 @@ const tempEl = document.getElementById('temp');
 const humidityEl = document.getElementById('humidity');
 const windEl = document.getElementById('wind');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const city = cityInput.value.trim();
-  if (!city) return;
-
+async function fetchWeather(city) {
   // Получаем координаты города
   const geoRes = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`);
   const [loc] = await geoRes.json();
@@ -35,4 +31,12 @@ form.addEventListener('submit', async (e) => {
   windEl.textContent = data.wind.speed;
 
   resultDiv.classList.remove('hidden');
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const city = cityInput.value.trim();
+  if (city) {
+    fetchWeather(city);
+  }
 });
