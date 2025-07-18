@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Погода в городе</h1>
+    <form id="search-form">
+      <input type="text" id="city-input" placeholder="Введите город" required>
+      <button type="submit">Найти</button>
+    </form>
+    <div id="weather-result" class="hidden">
+      <h2 id="city-name"></h2>
+      <p id="description"></p>
+      <p>Температура: <span id="temp"></span>°C</p>
+      <p>Влажность: <span id="humidity"></span>%</p>
+      <p>Ветер: <span id="wind"></span> м/с</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
